@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABCD Dashboard</title>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <img src="https://via.placeholder.com/50" alt="Logo" class="logo-img">
+                <span>ABCD</span>
+            </div>
+            <ul>
+                <li class="active"><a href="#"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+                <li><a href="#"><i class="fas fa-shopping-cart"></i> Orders</a></li>
+                <li><a href="#"><i class="fas fa-users"></i> Customers</a></li>
+                <li><a href="#"><i class="fas fa-box"></i> Products</a></li>
+                <li><a href="#"><i class="fas fa-money-bill-wave"></i> Finance</a></li>
+                <li><a href="#"><i class="fas fa-file-alt"></i> Report</a></li>
+            </ul>
+        </nav>
+        <main class="content">
+            <header>
+                <button class="sidebar-toggle"><i class="fas fa-bars"></i></button>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="user-info">
+                    <span>Welcome, John Doe</span>
+                    <img src="https://via.placeholder.com/40" alt="User Avatar" class="avatar">
+                </div>
+            </header>
+            
+            <h1>Dashboard Overview</h1>
+            <div class="dashboard-grid">
+                <section class="overall-sales card">
+                    <h2>Overall Sales</h2>
+                    <canvas id="sales-chart"></canvas>
+                </section>
+                <section class="key-metrics card">
+                    <div class="metric total-sales">
+                        <i class="fas fa-dollar-sign"></i>
+                        <div>
+                            <div class="metric-title">Total Sales</div>
+                            <div class="metric-value" id="total-sales">$0</div>
+                        </div>
+                    </div>
+                    <div class="metric total-orders">
+                        <i class="fas fa-shopping-bag"></i>
+                        <div>
+                            <div class="metric-title">Total Orders</div>
+                            <div class="metric-value" id="total-orders">0</div>
+                        </div>
+                    </div>
+                    <div class="metric total-revenue">
+                        <i class="fas fa-chart-pie"></i>
+                        <div>
+                            <div class="metric-title">Total Revenue</div>
+                            <div class="metric-value" id="total-revenue">$0</div>
+                        </div>
+                    </div>
+                </section>
+                <section class="sales-distribution card">
+                    <h2>Sales Distribution</h2>
+                    <canvas id="sales-pie-chart"></canvas>
+                </section>
+                <section class="top-product card">
+                    <h2>Top Product</h2>
+                    <canvas id="top-product-chart"></canvas>
+                    <ul id="top-products-list"></ul>
+                </section>
+                <section class="recent-orders card">
+                    <h2>Recent Orders</h2>
+                    <ul id="order-list"></ul>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/chart-config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

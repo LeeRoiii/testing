@@ -1,0 +1,353 @@
+:root {
+    --primary-color: #2c2c2c; /* Dark Gray */
+    --secondary-color: #b0b0b0; /* Light Gray */
+    --background-color: #f9f9f9; /* Off-White */
+    --card-background: #ffffff; /* White */
+    --text-color: #333333; /* Darker Gray */
+    --light-text: #666666; /* Medium Gray */
+    --border-radius: 10px;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Container */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: var(--primary-color);
+    color: var(--card-background);
+    padding: 20px;
+    transition: transform 0.3s ease; /* Smooth transition for sidebar */
+    position: fixed; /* Keeps the sidebar fixed */
+    height: 100vh; /* Full height */
+    overflow-y: auto; /* Scroll if content overflows */
+    top: 0;
+    left: 0;
+}
+
+.sidebar.active {
+    transform: translateX(0); /* Show sidebar when active */
+}
+
+.sidebar.hidden {
+    transform: translateX(-100%); /* Hide sidebar off-screen */
+}
+
+.sidebar-toggle {
+    display: none; /* Hidden by default */
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.logo-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.logo span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Sidebar Links */
+.sidebar ul {
+    list-style-type: none;
+}
+
+.sidebar li {
+    margin-bottom: 15px;
+}
+
+.sidebar a {
+    color: var(--card-background);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.sidebar a:hover, .sidebar .active a {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* Content Styles */
+.content {
+    flex-grow: 1;
+    padding: 30px;
+    margin-left: 250px; /* Offset for fixed sidebar */
+    overflow-y: auto;
+    transition: margin-left 0.3s ease; /* Smooth transition for content shift */
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* Search Bar Styles */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: var(--card-background);
+    border-radius: 20px;
+    padding: 5px 15px;
+    box-shadow: var(--box-shadow);
+    transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.search-bar i {
+    color: var(--light-text);
+}
+
+/* User Info Styles */
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info span {
+    margin-right: 10px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Headings */
+h1 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-size: 24px;
+    animation: fadeIn 1s ease-out; /* Fade-in animation for headings */
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    animation: fadeIn 1s ease-out; /* Fade-in animation for grid */
+}
+
+/* Card Styles */
+.card {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: var(--box-shadow);
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+    animation: fadeInUp 1s ease-out; /* Fade-in-up animation for cards */
+}
+
+.card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px) scale(1.02);
+}
+
+/* Overall Sales and Sales Report */
+.overall-sales, .sales-report {
+    grid-column: span 2;
+    animation: fadeIn 1s ease-out; /* Fade-in animation for large sections */
+}
+
+/* Key Metrics */
+.key-metrics {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    animation: fadeIn 1s ease-out; /* Fade-in animation for key metrics */
+}
+
+.metric {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+    transition: transform 0.3s ease; /* Smooth transition for hover effects */
+    animation: fadeInUp 1s ease-out; /* Fade-in-up animation for metrics */
+}
+
+.metric:hover {
+    transform: translateY(-3px);
+}
+
+.metric i {
+    font-size: 24px;
+    margin-right: 15px;
+    color: var(--primary-color);
+}
+
+.metric h3 {
+    font-size: 14px;
+    color: var(--light-text);
+    margin-bottom: 5px;
+}
+
+.metric p {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Recent Orders */
+#order-list {
+    list-style-type: none;
+    animation: fadeIn 1s ease-out; /* Fade-in animation for the list */
+}
+
+#order-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+#order-list li:hover {
+    background-color: var(--card-background);
+    transform: scale(1.02);
+}
+
+#order-list li:last-child {
+    border-bottom: none;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 10px;
+        position: fixed; /* Fix the sidebar to the top of the screen */
+        height: 100%; /* Full height */
+        top: 0; /* Align to the top */
+        left: -100%; /* Initially hide it off-screen */
+        transition: left 0.3s ease; /* Smooth transition for sliding effect */
+        z-index: 1000; /* Ensure it appears above other elements */
+    }
+
+    .sidebar.active {
+        left: 0; /* Show sidebar when active */
+    }
+
+    .content {
+        margin-left: 0; /* No margin for content when sidebar is hidden */
+        padding: 20px;
+        transition: padding 0.3s ease; /* Smooth transition for padding adjustment */
+    }
+
+    .header {
+        position: relative; /* Relative positioning for the toggle button */
+    }
+
+    .sidebar-toggle {
+        display: block; /* Show the toggle button */
+        background: var(--primary-color);
+        color: var(--card-background);
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 24px; /* Adjust font size as needed */
+        margin-bottom: 10px; /* Space out from other elements */
+        align-self: flex-start; /* Align to the start of the header */
+        position: absolute; /* Position absolutely */
+        top: 10px;
+        left: 10px;
+        z-index: 1001; /* Ensure it is above the sidebar */
+    }
+
+    .search-bar {
+        width: 100%; /* Full-width search bar on mobile */
+        transition: width 0.3s ease; /* Smooth transition for width adjustment */
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr; /* Single column layout for dashboard grid */
+    }
+
+    .card {
+        padding: 15px; /* Adjust padding for mobile cards */
+    }
+
+    .overall-sales, .sales-report {
+        grid-column: span 1;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
